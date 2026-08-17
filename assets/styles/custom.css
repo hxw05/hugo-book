@@ -74,8 +74,8 @@ body {
 }
 
 body {
-  font-family: var(--body-font-family, 'Open Sans', system-ui, 'Segoe UI', Roboto,
-    Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji');
+  font-family: 'Open Sans', system-ui, 'Segoe UI', Roboto, Helvetica, Arial,
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
 }
 
 /* Roomier line-height for wrapped CJK headings */
