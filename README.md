@@ -1,4 +1,4 @@
-# hugo-book (whxnotes fork)
+# hugo-book fork
 
 Local fork of [alex-shpak/hugo-book](https://github.com/alex-shpak/hugo-book)
 (v0.14.0) used by the whxnotes site, pinned as a submodule at

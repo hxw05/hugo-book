@@ -1,9 +1,16 @@
 {{/* Client-side Shiki; see assets/js/shiki.js. */}}
 {{/* Override dark theme-color (last meta wins). */}}
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1e1e1e">
+{{- /* Fonts from theme.toml params; defaults inline (site params suppress theme defaults) */ -}}
+{{- $googleFonts := site.Params.BookFontsGoogle | default (slice "Open+Sans:wght@400;600;700") -}}
+{{- $fontFamily := site.Params.BookFontFamily | default "'Open Sans', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji'" -}}
+{{- if $googleFonts -}}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+{{- $fontsHref := printf "https://fonts.googleapis.com/css2?family=%s&display=swap" (delimit $googleFonts "&family=") | safeURL -}}
+<link href="{{ $fontsHref }}" rel="stylesheet">
+{{- end -}}
+<style>:root { --body-font-family: {{ $fontFamily | safeCSS }}; }</style>
 <script>
   window.MathJax = {
     tex: {

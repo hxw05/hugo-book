@@ -14,3 +14,9 @@ min_version = "0.158.0"
 [author]
   name = "Alex Shpak"
   homepage = "https://github.com/alex-shpak/"
+
+[params]
+  # Google Fonts families to load (css2 family specs, joined with &family=)
+  BookFontsGoogle = ['Open+Sans:wght@400;600;700']
+  # CSS font-family stack for the body; override in site hugo.toml [params]
+  BookFontFamily = "'Open Sans', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji'"
