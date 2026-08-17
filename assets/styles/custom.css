@@ -1,3 +1,301 @@
-/*
-  You can add custom styles and css variables here.
-*/
+.admonition {
+  margin: 1.2rem 0;
+  padding: 0.75rem 1rem;
+  background: var(--gray-100);
+  border-left: 4px solid var(--gray-400);
+}
+
+.admonition.tip {
+  border-left-color: #4a9a5a;
+}
+
+.admonition.info {
+  border-left-color: #4a7fb5;
+}
+
+.admonition.warning {
+  border-left-color: #c07a2d;
+}
+
+.admonition-title {
+  margin: 0 0 0.4rem;
+  font-weight: 700;
+}
+
+.admonition.details {
+  border: 1px solid var(--gray-300);
+  border-left: 4px solid var(--gray-400);
+  border-radius: 6px;
+}
+
+.admonition.details summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.admonition-body > :first-child {
+  margin-top: 0;
+}
+
+.admonition-body > :last-child {
+  margin-bottom: 0;
+}
+
+.math.display {
+  text-align: center;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+}
+
+.markdown img + em {
+  display: block;
+  margin: 0.25rem auto 1.25rem;
+  color: var(--gray-500);
+  font-size: var(--font-size-smaller);
+  font-style: normal;
+  text-align: center;
+}
+
+.markdown img {
+  cursor: zoom-in;
+}
+
+.medium-zoom-overlay {
+  z-index: 9999;
+}
+
+.medium-zoom-image--opened {
+  z-index: 10000;
+}
+
+/* CJK-Latin auto spacing */
+body {
+  text-autospace: normal;
+}
+
+body {
+  font-family: 'Open Sans', system-ui, 'Segoe UI', Roboto, Helvetica, Arial,
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+}
+
+/* Roomier line-height for wrapped CJK headings */
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  line-height: 1.3;
+}
+
+pre,
+code {
+  text-autospace: no-autospace;
+}
+
+/* gray-300/400 (used by admonitions); the theme only defines 100/200/500 */
+:root,
+:root[data-theme="light"],
+:root[data-theme="auto"] {
+  --gray-300: #dee2e6;
+  --gray-400: #ced4da;
+}
+
+/* Dark mode: neutral grayscale, no blue; Shiki syntax colors kept */
+:root[data-theme="dark"] {
+  --body-background: #1e1e1e;
+  --body-font-color: #d4d4d4;
+
+  --color-link: #e6e6e6;
+  --color-visited-link: #9e9e9e;
+
+  --gray-100: #2a2a2a;
+  --gray-200: #3a3a3a;
+  --gray-300: #4a4a4a;
+  --gray-400: #5c5c5c;
+  --gray-500: #9e9e9e;
+
+  --color-accent-default:   #c8c8c8;
+  --color-accent-note:      #b8b8b8;
+  --color-accent-tip:       #b8b8b8;
+  --color-accent-important: #c8c8c8;
+  --color-accent-warning:   #d4d4d4;
+  --color-accent-caution:   #e0e0e0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="auto"] {
+    --body-background: #1e1e1e;
+    --body-font-color: #d4d4d4;
+
+    --color-link: #e6e6e6;
+    --color-visited-link: #9e9e9e;
+
+    --gray-100: #2a2a2a;
+    --gray-200: #3a3a3a;
+    --gray-300: #4a4a4a;
+    --gray-400: #5c5c5c;
+    --gray-500: #9e9e9e;
+
+    --color-accent-default:   #c8c8c8;
+    --color-accent-note:      #b8b8b8;
+    --color-accent-tip:       #b8b8b8;
+    --color-accent-important: #c8c8c8;
+    --color-accent-warning:   #d4d4d4;
+    --color-accent-caution:   #e0e0e0;
+  }
+
+  /* Admonition accents gray in dark mode too */
+  :root[data-theme="auto"] .admonition.tip,
+  :root[data-theme="dark"] .admonition.tip {
+    border-left-color: #b8b8b8;
+  }
+
+  :root[data-theme="auto"] .admonition.info,
+  :root[data-theme="dark"] .admonition.info {
+    border-left-color: #b8b8b8;
+  }
+
+  :root[data-theme="auto"] .admonition.warning,
+  :root[data-theme="dark"] .admonition.warning {
+    border-left-color: #d4d4d4;
+  }
+}
+
+/* Shiki dark colors: explicit dark themes */
+:root[data-theme$="dark"] .shiki,
+:root[data-theme$="dark"] .shiki span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+}
+
+/* Shiki dark colors: auto themes follow OS */
+@media (prefers-color-scheme: dark) {
+  :root[data-theme$="auto"] .shiki,
+  :root[data-theme$="auto"] .shiki span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+  }
+}
+
+/* Mobile top bar + drawers (JS-driven, see assets/js/topbar.js) */
+@media screen and (max-width: 56rem) {
+  :root {
+    --topbar-height: calc(var(--space-16) * 2 + 1.5rem);
+    --topbar-space: calc(var(--topbar-height) + var(--space-16));
+  }
+
+  /* Fixed bar; .book-page reserves its height below */
+  .book-header {
+    position: fixed;
+    top: 0;
+    left: var(--space-16);
+    right: var(--space-16);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    height: var(--topbar-height);
+    background: var(--body-background);
+    box-shadow: 0 1px 0 var(--gray-200);
+    transition: transform 0.2s ease;
+  }
+
+  .book-header.headroom-hidden {
+    transform: translateY(-100%);
+  }
+
+  /* Reset button chrome */
+  .book-header .book-header-toggle {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    line-height: 0;
+    cursor: pointer;
+  }
+
+  /* Row fills the bar */
+  .book-header .book-header-row {
+    flex: 1 1 0%;
+    min-width: 0;
+  }
+
+  /* Center the title between the two buttons */
+  .book-header .book-header-title {
+    flex: 1 1 0%;
+    min-width: 0;
+    margin: 0 var(--space-16);
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  /* Keep .book-page a stacking context above the bar */
+  .book-page {
+    position: relative;
+    z-index: 1;
+    padding-top: var(--topbar-space);
+  }
+
+  .book-menu {
+    z-index: 3;
+  }
+
+  /* TOC drawer: dropdown panel under the bar */
+  body.toc-open .book-header {
+    box-shadow: none;
+  }
+
+  body.toc-open .book-header aside {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: calc(100dvh - var(--topbar-height));
+    overflow-y: auto;
+    background: var(--body-background);
+    box-shadow: 0 1px 0 var(--gray-200);
+    padding-bottom: var(--space-16);
+  }
+
+  body.toc-open .book-header aside nav {
+    margin-top: var(--space-16);
+  }
+
+  body.toc-open .book-header aside nav > ul {
+    margin-bottom: 0;
+  }
+
+  /* Menu drawer (body.menu-open) */
+  body.menu-open .book-menu {
+    visibility: initial;
+  }
+
+  body.menu-open .book-menu .book-menu-content {
+    transform: translateX(var(--menu-width));
+    box-shadow: 0 0 var(--space-8) rgba(0, 0, 0, 0.1);
+  }
+
+  body.menu-open .book-page {
+    opacity: 0.25;
+  }
+
+  body.menu-open .book-menu-overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  /* for RTL support */
+  body[dir="rtl"].menu-open .book-menu .book-menu-content {
+    transform: translateX(calc(-1 * var(--menu-width)));
+  }
+
+  /* Anchors scroll below the bar */
+  html {
+    scroll-padding-top: var(--topbar-space);
+  }
+}

@@ -5,8 +5,6 @@
   {{ partial "docs/inject/head" . }}
 </head>
 <body dir="{{ default "ltr" .Site.Language.Direction }}" class="book-kind-{{ .Kind }} book-type-{{ .Type }}{{ with .Layout }} book-layout-{{ . }}{{ end }}">
-  <input type="checkbox" class="hidden toggle" id="menu-control" />
-  <input type="checkbox" class="hidden toggle" id="toc-control" />
   <main class="container flex">
     {{ template "menu-container" . }} <!-- Left menu -->
 
@@ -27,7 +25,7 @@
         {{ template "clipboard" . }}
       </footer>
 
-      <label for="menu-control" class="hidden book-menu-overlay"></label>
+      <div class="hidden book-menu-overlay" id="menu-overlay"></div>
     </div>
 
     {{ template "toc-container" . }} <!-- Table of Contents -->
@@ -38,7 +36,7 @@
 </html>
 
 {{ define "menu-container" }}
-<aside class="book-menu">
+<aside class="book-menu" id="menu-drawer">
   <div class="book-menu-content">
     {{ template "menu" . }}
   </div>
@@ -53,7 +51,7 @@
   {{ partial "docs/header" . }}
 
   {{ if partial "docs/toc-show" . }}
-  <aside class="hidden">
+  <aside class="hidden" id="toc-drawer">
     {{ template "toc" . }}
   </aside>
   {{ end }}

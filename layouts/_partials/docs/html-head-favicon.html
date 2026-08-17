@@ -1,1 +1,9 @@
-<link rel="icon" href="{{ .Site.Params.BookFavicon | default "favicon.png" | relURL }}" >
+{{- /* Dark favicon = <light>-invert.ext; browsers pick via media query. */ -}}
+{{- $light := .Site.Params.BookFavicon | default "favicon.png" -}}
+{{- $dark := .Site.Params.BookFaviconDark -}}
+{{- if not $dark -}}
+  {{- $ext := path.Ext $light -}}
+  {{- $dark = printf "%s-invert%s" (strings.TrimSuffix $ext $light) $ext -}}
+{{- end -}}
+<link rel="icon" href="{{ $light | relURL }}" media="(prefers-color-scheme: light)">
+<link rel="icon" href="{{ $dark | relURL }}" media="(prefers-color-scheme: dark)">

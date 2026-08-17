@@ -1,0 +1,4 @@
+{{- /* Shared description for meta/og/schema; pages with frontmatter `description` only. */ -}}
+{{- if and (eq .Kind "page") .Description -}}
+{{- .Description | plainify | htmlUnescape -}}
+{{- end -}}

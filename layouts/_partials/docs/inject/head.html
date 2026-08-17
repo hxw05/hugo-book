@@ -1,0 +1,15 @@
+{{/* Client-side Shiki; see assets/js/shiki.js. */}}
+{{/* Override dark theme-color (last meta wins). */}}
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1e1e1e">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']],
+      displayMath: [['\\[', '\\]']]
+    }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
