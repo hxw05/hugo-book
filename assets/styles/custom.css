@@ -30,11 +30,11 @@
   font-weight: 600;
 }
 
-.admonition-body > :first-child {
+.admonition-body> :first-child {
   margin-top: 0;
 }
 
-.admonition-body > :last-child {
+.admonition-body> :last-child {
   margin-bottom: 0;
 }
 
@@ -80,7 +80,7 @@
   overflow-x: auto;
 }
 
-.markdown img + em {
+.markdown img+em {
   display: block;
   margin: 0.25rem auto 1.25rem;
   color: var(--gray-500);
@@ -111,7 +111,8 @@ body {
     sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
 }
 
-pre, code {
+pre,
+code {
   font-family: Menlo, Consolas, 'Courier New', Courier, monospace;
 }
 
@@ -155,12 +156,12 @@ code {
   --gray-400: #5c5c5c;
   --gray-500: #9e9e9e;
 
-  --color-accent-default:   #c8c8c8;
-  --color-accent-note:      #b8b8b8;
-  --color-accent-tip:       #b8b8b8;
+  --color-accent-default: #c8c8c8;
+  --color-accent-note: #b8b8b8;
+  --color-accent-tip: #b8b8b8;
   --color-accent-important: #c8c8c8;
-  --color-accent-warning:   #d4d4d4;
-  --color-accent-caution:   #e0e0e0;
+  --color-accent-warning: #d4d4d4;
+  --color-accent-caution: #e0e0e0;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -177,12 +178,12 @@ code {
     --gray-400: #5c5c5c;
     --gray-500: #9e9e9e;
 
-    --color-accent-default:   #c8c8c8;
-    --color-accent-note:      #b8b8b8;
-    --color-accent-tip:       #b8b8b8;
+    --color-accent-default: #c8c8c8;
+    --color-accent-note: #b8b8b8;
+    --color-accent-tip: #b8b8b8;
     --color-accent-important: #c8c8c8;
-    --color-accent-warning:   #d4d4d4;
-    --color-accent-caution:   #e0e0e0;
+    --color-accent-warning: #d4d4d4;
+    --color-accent-caution: #e0e0e0;
   }
 
   /* Admonition backgrounds gray in dark mode too */
@@ -201,6 +202,7 @@ code {
     background: var(--gray-200);
   }
 }
+
 /* Shiki code blocks: gray background instead of theme background */
 .markdown pre.shiki {
   background-color: var(--gray-100) !important;
@@ -215,6 +217,7 @@ code {
 
 /* Shiki dark colors: auto themes follow OS */
 @media (prefers-color-scheme: dark) {
+
   :root[data-theme$="auto"] .shiki,
   :root[data-theme$="auto"] .shiki span {
     color: var(--shiki-dark) !important;
@@ -306,7 +309,7 @@ code {
     margin-top: var(--space-16);
   }
 
-  body.toc-open .book-header aside nav > ul {
+  body.toc-open .book-header aside nav>ul {
     margin-bottom: 0;
   }
 
