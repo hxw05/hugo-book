@@ -1,5 +1,11 @@
 {{ partial "docs/inject/toc-before" . }}
+<div class="book-toc-title">TOC</div>
 {{ $toc := .TableOfContents }}
 {{ $toc = replaceRE `</?(?:code|em|strong|b|i|u|s|small|mark|kbd|samp|var|sub|sup|del|ins|q)(?:\s[^>]*)?>` "" $toc }}
+{{ $tocText := $toc | replaceRE "<[^>]*>" "" | strings.TrimSpace }}
+{{ if $tocText }}
 {{ $toc | safeHTML }}
+{{ else }}
+<p class="book-toc-empty">此页面无标题项目</p>
+{{ end }}
 {{ partial "docs/inject/toc-after" . }}

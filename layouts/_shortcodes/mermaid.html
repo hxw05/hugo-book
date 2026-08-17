@@ -10,7 +10,16 @@
 {{- if not (.Page.Store.Get "mermaid") -}}
   {{- /* Include mermaid only first time */ -}}
   {{- with resources.Get "mermaid.json" | minify -}}
-  <script src="{{ "mermaid.min.js" | relURL }}" onload="mermaid.initialize({{ .Content | safeJS }})"></script>
+  <script src="{{ "mermaid.min.js" | relURL }}"></script>
+  <script>
+    (function () {
+      var theme = document.documentElement.dataset.theme;
+      var dark = theme === "dark" ||
+        (theme === "auto" && window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches);
+      mermaid.initialize(Object.assign({}, {{ .Content | safeJS }}, { theme: dark ? "dark" : "neutral" }));
+    })();
+  </script>
   {{- end -}}
   {{- .Page.Store.Set "mermaid" true -}}
 {{- end -}}

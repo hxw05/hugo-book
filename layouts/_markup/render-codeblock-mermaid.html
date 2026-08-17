@@ -4,7 +4,15 @@
   {{- /* Include mermaid only first time */ -}}
   <script src="{{ "mermaid.min.js" | relURL }}"></script>
   {{- with resources.Get "mermaid.json" | minify -}}
-    <script>mermaid.initialize({{ .Content | safeJS }})</script>
+    <script>
+      (function () {
+        var theme = document.documentElement.dataset.theme;
+        var dark = theme === "dark" ||
+          (theme === "auto" && window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches);
+        mermaid.initialize(Object.assign({}, {{ .Content | safeJS }}, { theme: dark ? "dark" : "neutral" }));
+      })();
+    </script>
   {{- end -}}
   {{- .Page.Store.Set "mermaid" true -}}
 {{- end -}}

@@ -74,21 +74,6 @@
     }
   }
 
-  .book-hint {
-    &.note { --accent-color: var(--color-accent-note); }
-    &.tip { --accent-color: var(--color-accent-tip); }
-    &.important { --accent-color: var(--color-accent-important); }
-    &.warning { --accent-color: var(--color-accent-warning); }
-    &.caution { --accent-color: var(--color-accent-caution); }
-    &.default { --accent-color: var(--color-accent-default); }
-    &.info { --accent-color: var(--color-accent-info); }
-    &.success { --accent-color: var(--color-accent-success); }
-    &.danger { --accent-color: var(--color-accent-danger); }
-
-    border-color: var(--accent-color);
-    background-color: color-mix(in srgb, var(--accent-color) 10%, transparent);
-  }
-
   /* {{< badge >}} */
   .book-badge {
     &.note { --accent-color: var(--color-accent-note); }
