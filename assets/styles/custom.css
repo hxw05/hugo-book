@@ -363,3 +363,7 @@ body.toc-open .book-header aside::-webkit-scrollbar {
 .book-post-date {
   margin-bottom: 0.25rem;
 }
+
+.book-post-date + h1 {
+  margin-top: 0;
+}
