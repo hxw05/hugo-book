@@ -366,12 +366,12 @@ body.toc-open .book-header aside::-webkit-scrollbar {
 }
 
 :root[data-theme="dark"] .book-post-date {
-  color: #eceff4;
+  color: #c0c0c0;
 }
 
 @media (prefers-color-scheme: dark) {
   :root[data-theme="auto"] .book-post-date {
-    color: #eceff4;
+    color: #c0c0c0;
   }
 }
 
