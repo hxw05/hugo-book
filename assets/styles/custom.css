@@ -361,7 +361,18 @@ body.toc-open .book-header aside::-webkit-scrollbar {
 
 /* Post date shown on single pages */
 .book-post-date {
+  color: #000;
   margin-bottom: 0.25rem;
+}
+
+:root[data-theme="dark"] .book-post-date {
+  color: #eceff4;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="auto"] .book-post-date {
+    color: #eceff4;
+  }
 }
 
 .book-post-date + h1 {

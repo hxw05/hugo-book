@@ -1,7 +1,7 @@
 {{ define "main" }}
   <article class="markdown book-article">
     {{ with .Params.Date }}
-      <div class="book-post-date">{{ partial "docs/date" (dict "Date" . "Format" "2006年1月2日") }}</div>
+      <div class="book-post-date">发布于{{ partial "docs/date" (dict "Date" . "Format" "2006年1月2日") }}</div>
     {{ end }}
     {{ .Content }}
   </article>
