@@ -11,7 +11,7 @@
   {{ else if .Title }}
     {{ $title = .Title }}
   {{ else if and .IsSection .File }}
-    {{ $title = path.Base .File.Dir | humanize | title }}
+    {{ $title = path.Base .File.Dir }}
   {{ else if and .IsPage .File }}
     {{ $title = .File.BaseFileName | humanize | title }}
   {{ end }}
