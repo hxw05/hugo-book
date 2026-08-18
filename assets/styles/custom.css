@@ -361,11 +361,5 @@ body.toc-open .book-header aside::-webkit-scrollbar {
 
 /* Post date shown on single pages */
 .book-post-date {
-  margin-bottom: 0.5rem;
-}
-
-.book-post-date img {
-  height: 1em;
-  width: 1em;
-  margin-inline-end: 0.5em;
+  margin-bottom: 0.25rem;
 }

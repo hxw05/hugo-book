@@ -1,10 +1,7 @@
 {{ define "main" }}
   <article class="markdown book-article">
     {{ with .Params.Date }}
-      <div class="flex align-center text-small book-post-date">
-        <img src="{{ partial "docs/icon" "calendar" }}" class="book-icon" alt="{{ partial "docs/text/i18n" "Calendar" }}" />
-        <span>{{ partial "docs/date" (dict "Date" . "Format" $.Site.Params.BookDateFormat) }}</span>
-      </div>
+      <div class="book-post-date">{{ partial "docs/date" (dict "Date" . "Format" "2006年1月2日") }}</div>
     {{ end }}
     {{ .Content }}
   </article>
