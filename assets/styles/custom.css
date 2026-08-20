@@ -90,6 +90,8 @@
 }
 
 .markdown img {
+  display: block;
+  margin: 0 auto;
   cursor: zoom-in;
 }
 
