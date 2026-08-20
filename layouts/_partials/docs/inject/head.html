@@ -5,6 +5,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <script>
+  // Apply saved theme before first paint; theme-toggle.js owns the toggle.
+  (function () {
+    var theme = localStorage.getItem('whx-theme');
+    if (theme) document.documentElement.dataset.theme = theme;
+  })();
+</script>
+<script>
   window.MathJax = {
     tex: {
       inlineMath: [['\\(', '\\)']],

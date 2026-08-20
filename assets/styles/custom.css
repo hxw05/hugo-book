@@ -70,8 +70,18 @@
 
 .book-toc-empty {
   font-style: italic;
-  color: var(--gray-400);
+  color: var(--gray-500);
   margin: 0;
+}
+
+:root[data-theme="dark"] .book-toc-empty {
+  color: var(--gray-400);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="auto"] .book-toc-empty {
+    color: var(--gray-400);
+  }
 }
 
 .math.display {
