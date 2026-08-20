@@ -80,7 +80,8 @@
   overflow-x: auto;
 }
 
-.markdown img+em {
+.markdown img+em,
+.markdown pre.mermaid + p > em:only-child {
   display: block;
   margin: 0.25rem auto 1.25rem;
   color: var(--gray-500);
