@@ -21,4 +21,12 @@
 {{- else -}}
   {{- $href = printf "%s%s" $destination $anchor -}}
 {{- end -}}
-<a href="{{ $href | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>
+{{- $external := or (strings.HasPrefix $destination "//") (findRE "^[a-zA-Z][a-zA-Z0-9+.-]*:" $destination) -}}
+{{- if and $external $destination -}}
+  {{- with $parsed := urls.Parse $destination -}}
+    {{- if and $parsed.Host (eq $parsed.Host (urls.Parse site.BaseURL).Host) -}}
+      {{- $external = false -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+<a href="{{ $href | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if $external }} target="_blank" rel="noopener"{{ end }}>{{ .Text | safeHTML }}</a>
